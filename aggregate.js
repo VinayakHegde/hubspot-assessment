@@ -1,5 +1,10 @@
 const utils = require('./utils');
 
+/**
+ * @description Given a master map of countries to dates to attendees, return an array of events
+ * @param {Map} map is the map of countries to dates to attendees
+ * @returns {Array} an array of events of the form { name, attendeeCount, attendees, startDate }
+ */
 const getEventsFromMap = (map) => {
   const events = [];
 
@@ -37,6 +42,11 @@ const getEventsFromMap = (map) => {
   return events;
 }
 
+/**
+ * @description Given an array of partners, return an object of the form { countries: ArrayOfEvents } where ArrayOfEvents is an array of events of the form { name, attendeeCount, attendees, startDate }
+ * @param {Array} partners is the array of partners from the dataset
+ * @returns {Object} an object of the form { countries: ArrayOfEvents } where ArrayOfEvents is an array of events of the form { name, attendeeCount, attendees, startDate }
+ */
 const aggregate = (partners) => {
   const masterMap = new Map();
   for (const partner of partners) {
